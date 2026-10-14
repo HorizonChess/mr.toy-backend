@@ -68,6 +68,22 @@ app.post('/api/toy', (req, res) => {
         })
 })
 
+app.put('/api/toy/:toyId', (req, res) => {
+    const toy = {
+        _id: req.params.toyId,
+        name: req.body.name,
+        price: +req.body.price,
+        labels: req.body.labels || [],
+        inStock: !!req.body.inStock,
+    }
+    toyService.save(toy)
+        .then(savedToy => res.send(savedToy))
+        .catch(err => {
+            loggerService.error('Cannot save toy', err)
+            res.status(400).send('Cannot save toy')
+        })
+})
+
 app.delete('/api/toy/:toyId', (req, res) => {
     const { toyId } = req.params
 
