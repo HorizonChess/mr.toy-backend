@@ -52,6 +52,17 @@ app.get('/api/toy/:toyId', (req, res) => {
         })
 })
 
+app.delete('/api/toy/:toyId', (req, res) => {
+    const { toyId } = req.params
+
+    toyService.remove(toyId)
+        .then(() => res.send('Removed!'))
+        .catch(err => {
+            loggerService.error('Cannot remove toy', err)
+            res.status(400).send('Cannot remove toy')
+        })
+})
+
 // Fallback route
 app.get('/**', (req, res) => {
     res.sendFile(path.resolve('public/index.html'))
