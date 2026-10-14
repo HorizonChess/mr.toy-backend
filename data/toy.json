@@ -1,0 +1,141 @@
+[
+  {
+    "_id": "t101",
+    "name": "Talking Doll",
+    "imgUrl": "https://robohash.org/Talking%20Doll?set=set4",
+    "price": 123,
+    "labels": [
+      "Doll",
+      "Battery Powered",
+      "Baby"
+    ],
+    "createdAt": 1759386400000,
+    "inStock": true
+  },
+  {
+    "_id": "t102",
+    "name": "Race Car",
+    "imgUrl": "https://robohash.org/Race%20Car?set=set4",
+    "price": 89,
+    "labels": [
+      "On wheels",
+      "Battery Powered"
+    ],
+    "createdAt": 1759559200000,
+    "inStock": true
+  },
+  {
+    "_id": "t103",
+    "name": "Rubik Cube",
+    "imgUrl": "https://robohash.org/Rubik%20Cube?set=set4",
+    "price": 35,
+    "labels": [
+      "Puzzle"
+    ],
+    "createdAt": 1759818400000,
+    "inStock": true
+  },
+  {
+    "_id": "t104",
+    "name": "Teddy Bear",
+    "imgUrl": "https://robohash.org/Teddy%20Bear?set=set4",
+    "price": 59,
+    "labels": [
+      "Baby",
+      "Doll"
+    ],
+    "createdAt": 1759904800000,
+    "inStock": false
+  },
+  {
+    "_id": "t105",
+    "name": "Paint Set",
+    "imgUrl": "https://robohash.org/Paint%20Set?set=set4",
+    "price": 45,
+    "labels": [
+      "Art"
+    ],
+    "createdAt": 1760077600000,
+    "inStock": true
+  },
+  {
+    "_id": "t106",
+    "name": "Kite",
+    "imgUrl": "https://robohash.org/Kite?set=set4",
+    "price": 29,
+    "labels": [
+      "Outdoor"
+    ],
+    "createdAt": 1760336800000,
+    "inStock": true
+  },
+  {
+    "_id": "t107",
+    "name": "Lego Castle",
+    "imgUrl": "https://robohash.org/Lego%20Castle?set=set4",
+    "price": 249,
+    "labels": [
+      "Box game",
+      "Puzzle"
+    ],
+    "createdAt": 1760423200000,
+    "inStock": false
+  },
+  {
+    "_id": "t108",
+    "name": "Baby Rattle",
+    "imgUrl": "https://robohash.org/Baby%20Rattle?set=set4",
+    "price": 19,
+    "labels": [
+      "Baby"
+    ],
+    "createdAt": 1760596000000,
+    "inStock": true
+  },
+  {
+    "_id": "t109",
+    "name": "Robot Dog",
+    "imgUrl": "https://robohash.org/Robot%20Dog?set=set4",
+    "price": 199,
+    "labels": [
+      "Battery Powered",
+      "On wheels"
+    ],
+    "createdAt": 1760855200000,
+    "inStock": true
+  },
+  {
+    "_id": "t110",
+    "name": "Jigsaw Puzzle",
+    "imgUrl": "https://robohash.org/Jigsaw%20Puzzle?set=set4",
+    "price": 39,
+    "labels": [
+      "Puzzle",
+      "Art"
+    ],
+    "createdAt": 1760941600000,
+    "inStock": false
+  },
+  {
+    "_id": "t111",
+    "name": "Monopoly",
+    "imgUrl": "https://robohash.org/Monopoly?set=set4",
+    "price": 79,
+    "labels": [
+      "Box game"
+    ],
+    "createdAt": 1761114400000,
+    "inStock": true
+  },
+  {
+    "_id": "t112",
+    "name": "Water Gun",
+    "imgUrl": "https://robohash.org/Water%20Gun?set=set4",
+    "price": 25,
+    "labels": [
+      "Outdoor"
+    ],
+    "createdAt": 1761373600000,
+    "inStock": true
+  }
+]
