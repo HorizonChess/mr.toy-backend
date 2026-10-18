@@ -53,12 +53,13 @@ app.get('/api/toy/:toyId', (req, res) => {
 })
 
 app.post('/api/toy', (req, res) => {
+    const { name, price, labels, inStock, imgUrl } = req.body
     const toy = {
-        name: req.body.name,
-        price: +req.body.price,
-        labels: req.body.labels || [],
-        inStock: !!req.body.inStock,
-        imgUrl: req.body.imgUrl || '',
+        name,
+        price: +price,
+        labels: labels || [],
+        inStock: !!inStock,
+        imgUrl: imgUrl || '',
     }
     toyService.save(toy)
         .then(savedToy => res.send(savedToy))
@@ -69,12 +70,14 @@ app.post('/api/toy', (req, res) => {
 })
 
 app.put('/api/toy/:toyId', (req, res) => {
+    const { toyId } = req.params
+    const { name, price, labels, inStock } = req.body
     const toy = {
-        _id: req.params.toyId,
-        name: req.body.name,
-        price: +req.body.price,
-        labels: req.body.labels || [],
-        inStock: !!req.body.inStock,
+        _id: toyId,
+        name,
+        price: +price,
+        labels: labels || [],
+        inStock: !!inStock,
     }
     toyService.save(toy)
         .then(savedToy => res.send(savedToy))

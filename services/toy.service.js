@@ -18,20 +18,21 @@ const msgs = [
 ]
 
 function query(filterBy = {}) {
+    const { txt, inStock, labels, sortBy } = filterBy
     var toysToReturn = toys
 
-    if (filterBy.txt) {
-        const regex = new RegExp(filterBy.txt, 'i')
+    if (txt) {
+        const regex = new RegExp(txt, 'i')
         toysToReturn = toysToReturn.filter(toy => regex.test(toy.name))
     }
-    if (filterBy.inStock !== undefined) {
-        toysToReturn = toysToReturn.filter(toy => toy.inStock === filterBy.inStock)
+    if (inStock !== undefined) {
+        toysToReturn = toysToReturn.filter(toy => toy.inStock === inStock)
     }
-    if (filterBy.labels && filterBy.labels.length) {
-        toysToReturn = toysToReturn.filter(toy => filterBy.labels.every(label => toy.labels.includes(label)))
+    if (labels && labels.length) {
+        toysToReturn = toysToReturn.filter(toy => labels.every(label => toy.labels.includes(label)))
     }
-    if (filterBy.sortBy) {
-        toysToReturn = _sortToys([...toysToReturn], filterBy.sortBy)
+    if (sortBy) {
+        toysToReturn = _sortToys([...toysToReturn], sortBy)
     }
     return Promise.resolve(toysToReturn)
 }
@@ -54,10 +55,8 @@ function save(toy) {
     if (toy._id) {
         const toyToUpdate = toys.find(currToy => currToy._id === toy._id)
         if (!toyToUpdate) return Promise.reject('No Such Toy')
-        toyToUpdate.name = toy.name
-        toyToUpdate.price = toy.price
-        toyToUpdate.labels = toy.labels
-        toyToUpdate.inStock = toy.inStock
+        const { name, price, labels, inStock } = toy
+        Object.assign(toyToUpdate, { name, price, labels, inStock })
         toy = toyToUpdate
     } else {
         toy._id = utilService.makeId()
