@@ -41,6 +41,16 @@ app.get('/api/toy', (req, res) => {
         })
 })
 
+// Must stay above /api/toy/:toyId, otherwise 'stats' is matched as a toyId
+app.get('/api/toy/stats', (req, res) => {
+    toyService.getStats()
+        .then(stats => res.send(stats))
+        .catch(err => {
+            loggerService.error('Cannot get toy stats', err)
+            res.status(400).send('Cannot get toy stats')
+        })
+})
+
 app.get('/api/toy/:toyId', (req, res) => {
     const { toyId } = req.params
 

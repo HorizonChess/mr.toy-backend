@@ -4,6 +4,7 @@ export const utilService = {
 	readJsonFile,
 	writeJsonFile,
 	makeId,
+	getAverage,
 }
 
 function readJsonFile(path) {
@@ -29,4 +30,10 @@ function makeId(length = 5) {
 		text += possible.charAt(Math.floor(Math.random() * possible.length))
 	}
 	return text
+}
+
+function getAverage(nums) {
+	if (!nums.length) return 0
+	const sum = nums.reduce((acc, num) => acc + num, 0)
+	return sum / nums.length
 }
