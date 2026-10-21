@@ -5,7 +5,8 @@ export const toyService = {
     query,
     getById,
     remove,
-    save
+    save,
+    getStats,
 }
 
 const TOYS_FILE = 'data/toy.json'
@@ -64,6 +65,25 @@ function save(toy) {
         toys.push(toy)
     }
     return _saveToysToFile().then(() => toy)
+}
+
+function getStats() {
+    // Group toys by label: { Doll: { prices: [87, 120], inStockCount: 1 }, ... }
+    const statsMap = {}
+    toys.forEach(toy => {
+        toy.labels.forEach(label => {
+            if (!statsMap[label]) statsMap[label] = { prices: [], inStockCount: 0 }
+            statsMap[label].prices.push(toy.price)
+            if (toy.inStock) statsMap[label].inStockCount++
+        })
+    })
+
+    const stats = Object.entries(statsMap).map(([label, { prices, inStockCount }]) => ({
+        label,
+        avgPrice: Math.round(utilService.getAverage(prices)),
+        inStockPct: Math.round(inStockCount / prices.length * 100),
+    }))
+    return Promise.resolve(stats)
 }
 
 function _sortToys(toys, sortBy) {
